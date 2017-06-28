@@ -1,0 +1,68 @@
+<%- include('header') %>
+<h1 class="page-header">Edit Post</h1>
+<form method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input class="form-control" type="text" name="title" value="<%= post.title %>" />
+  </div>
+  <div class="form-group">
+    <label for="url">URL</label>
+    <input class="form-control" type="text" name="url" value="<%= post.url %>" />
+  </div>
+  <div class="form-group">
+    <label for="text">Text</label>
+    <textarea class="form-control" name="text"><%= post.text %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="url">Subreddit</label>
+    <input class="form-control" type="text" name="subreddit" value="<%= post.subreddit %>" />
+  </div>
+  <div class="form-group">
+    <label>Post On:</label>
+    <div class="form-inline">
+      <div class="form-group">
+        <label class="sr-only" for="dateToPostYear">Year</label>
+        <select name="dateToPostYear" class="form-control">
+          <% years.forEach(function(year) { %>
+            <option value="<%= year %>" <%= post.dateToPost.getFullYear() == year ? 'selected="selected"' : null %>><%= year %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="dateToPostMonth">Month</label>
+        <select name="dateToPostMonth" class="form-control">
+          <% months.forEach(function(month) { %>
+            <option value="<%= month %>" <%= post.dateToPost.getMonth() == month ? 'selected="selected"' : null %>><%= month+1 %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="dateToPostDay">Day</label>
+        <select name="dateToPostDay" class="form-control">
+          <% days.forEach(function(day) { %>
+            <option value="<%= day %>" <%= post.dateToPost.getDate() == day ? 'selected="selected"' : null %>><%= day %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="dateToPostHour">Hour</label>
+        <select name="dateToPostHour" class="form-control">
+          <% hours.forEach(function(hour) { %>
+            <option value="<%= hour %>" <%= post.dateToPost.getHours() == hour ? 'selected="selected"' : null %>><%= hour %></option>
+          <% }) %>
+        </select>
+      </div>
+      <p class="form-control-static">:</p>
+      <div class="form-group">
+        <label class="sr-only" for="dateToPostMinute">Minute</label>
+        <select name="dateToPostMinute" class="form-control">
+          <% minutes.forEach(function(minute) { %>
+            <option value="<%= minute %>" <%= post.dateToPost.getMinutes() == minute ? 'selected="selected"' : null %>><%= minute %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Save</button>
+</form>
+<%- include('footer') %>

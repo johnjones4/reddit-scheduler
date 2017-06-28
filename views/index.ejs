@@ -1,0 +1,30 @@
+<%- include('header') %>
+<h1 class="page-header"><%= title %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Text</th>
+      <th>Subreddit</th>
+      <th>Date to Post</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.forEach(function(post) { %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.url %></td>
+        <td><%= post.text %></td>
+        <td><%= post.subreddit %></td>
+        <td><%= post.dateToPost %></td>
+        <td>
+          <a href="/post/<%= post._id %>" class="btn btn-xs">Edit</a>
+          <a href="/post/<%= post._id %>/delete" class="btn btn-xs">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<%- include('footer') %>
