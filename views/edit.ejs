@@ -1,6 +1,6 @@
 <%- include('header') %>
 <h1 class="page-header">Edit Post</h1>
-<form method="post">
+<form method="post" action="<%= action %>">
   <div class="form-group">
     <label for="title">Title</label>
     <input class="form-control" type="text" name="title" value="<%= post.title %>" />
