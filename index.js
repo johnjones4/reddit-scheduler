@@ -27,11 +27,13 @@ require('./lib/passport').init(app);
 require('./lib/views').init(app);
 require('./lib/poster').init();
 
-app.listen(8080 || process.env.EXPRESS_PORT,(err) => {
+const port = 8080 || parseInt(process.env.EXPRESS_PORT);
+
+app.listen(port,(err) => {
   if (err) {
     console.error(err);
     process.exit(-1);
   } else {
-    console.log('Running');
+    console.log('Running on ' + port);
   }
 })
