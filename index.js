@@ -27,7 +27,7 @@ require('./lib/passport').init(app);
 require('./lib/views').init(app);
 require('./lib/poster').init();
 
-const port = 8080 || parseInt(process.env.EXPRESS_PORT);
+const port = parseInt(process.env.EXPRESS_PORT) || 8080;
 
 app.listen(port,(err) => {
   if (err) {
